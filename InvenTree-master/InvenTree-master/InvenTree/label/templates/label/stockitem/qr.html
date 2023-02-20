@@ -1,0 +1,23 @@
+{% extends "label/label_base.html" %}
+
+{% load l10n %}
+{% load barcode %}
+
+{% block style %}
+
+.qr {
+    position: fixed;
+    left: 0mm;
+    top: 0mm;
+    {% localize off %}
+    height: {{ height }}mm;
+    width: {{ height }}mm;
+    {% endlocalize %}
+}
+
+{% endblock %}
+
+{% block content %}
+
+<img class='qr' src='{% qrcode qr_data %}'>
+{% endblock %}
